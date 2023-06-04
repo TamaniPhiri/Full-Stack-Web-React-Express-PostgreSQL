@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>fullstack</title>
 </head>
 <body>
     <div>
         <dialog id="login">
-            <div style="cursor: pointer;" onclick="login.close()">X</div>
-            <h1>login</h1>
-            <input type="email" placeholder="email">
-            <input type="password" secureTextEntry="true" placeholder="password">
+            <div style="cursor: pointer; width: 100%; align-items:center;" onclick="login.close()">X</div>
+            <h1 style="width: 100%; align-items:center; text-align: center;">login</h1>
+            <input type="email" id="pass" placeholder="email" style="width: 100%;">
+            <input type="password" secureTextEntry="true" placeholder="password" style="width: 100%;">
             <button onclick="login.close()">login</button>
         </dialog>
         <button onclick="login.show()">login now</button>

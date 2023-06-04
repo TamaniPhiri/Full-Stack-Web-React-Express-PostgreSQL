@@ -1,3 +1,19 @@
-#login::backdrop{
-    background-color: black;
+dialog{
+    transition: all 0.5s;
+    display: block;
+    opacity: 0;
+    transform:rotateZ(10deg);
+    border-radius:10px;
+    height: 250px;
+    width: 20%;
+}
+dialog[open]{
+    opacity: 1;
+    transform: rotateZ(0deg);
+}
+#login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
 }
