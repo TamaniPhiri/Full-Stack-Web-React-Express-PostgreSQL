@@ -61,7 +61,7 @@ app.post("/user",async(req, res)=>{
     } catch (error) {
         console.log(error);
     }
-})
+});
 
 app.get('/',(req,res) =>{
     res.send('Welcome to our express server, please buy me a coffee 😎');
@@ -69,4 +69,4 @@ app.get('/',(req,res) =>{
 
 app.listen(PORT,() =>{
     console.log(`Server is listening on http://localhost:${PORT}`);
-})
+});
