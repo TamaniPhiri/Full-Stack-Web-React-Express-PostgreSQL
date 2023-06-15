@@ -37,11 +37,11 @@ app.get('/users/:id', async(req, res)=>{
 //update a specific user by id
 app.put('/users/:id', async(req, res)=>{
     const {id} =req.params;
-    const {name,email}=req.body;
+    const {names,email}=req.body;
     try {
         const user= await pool.query(
-            "UPDATE users SET name = $1, email = $2 WHERE id = $3",
-            [name,email,id] 
+            "UPDATE users SET names = $1, email = $2 WHERE id = $3",
+            [names,email,id] 
         );
         res.json("User updated successfully! 😎");
     } catch (error) {
@@ -52,10 +52,10 @@ app.put('/users/:id', async(req, res)=>{
 //post a username and email to the database
 app.post("/user",async(req, res)=>{
     try {
-        const {name,email}=req.body;
+        const {names,email}=req.body;
         const newUser= await pool.query(
-            "INSERT INTO users(name,email) VALUES($1,$2) RETURNING *",
-            [name,email]
+            "INSERT INTO users(names,email) VALUES($1,$2) RETURNING *",
+            [names,email]
         );
         res.json(newUser.rows[0]);
     } catch (error) {
