@@ -63,6 +63,21 @@ app.post("/user",async(req, res)=>{
     }
 });
 
+//delete a user according to id
+app.delete("/users/:id", async(req, res)=>{
+    const {id}=req.params;
+    try {
+        const deletedUser= await pool.query(
+            "DELETE FROM users WHERE id = $1",
+            [id]
+        );
+        res.json("User was successfully deleted");
+    } catch (error) {
+        
+    }
+});
+
+
 app.get('/',(req,res) =>{
     res.send('Welcome to our express server, please buy me a coffee 😎');
 });
