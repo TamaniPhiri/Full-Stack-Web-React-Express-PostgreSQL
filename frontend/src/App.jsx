@@ -24,18 +24,17 @@ function App() {
       names: postData.names,
       email: postData.email.trim(),
     }
-    
+
     if (postData.names === "" || postData.email === "") {
       alert("Please fill out name and email");
     } else {
       try {
         axios.post("http://localhost:8080/user", userData).then((response) => {
           console.log(response.status, response.data.token);
-        });
-        alert("Success! Please refresh your browser to see the new user");
+        })
+        .then(()=>alert("Refresh your browser to see the new user"))
       } catch (error) {
         console.log(error);
-        setError(true);
       }
     }
   };
@@ -63,6 +62,7 @@ function App() {
               value={postData.email}
               name="email"
               onChange={handleChange}
+              required
             />
             <input
               type="text"
@@ -70,6 +70,7 @@ function App() {
               value={postData.names}
               name="names"
               onChange={handleChange}
+              required
             />
             <button type="submit">Post</button>
           </form>
