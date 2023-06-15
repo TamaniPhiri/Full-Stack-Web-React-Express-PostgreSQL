@@ -12,7 +12,7 @@ app.use(cors());
 app.get('/users', async(req, res)=>{
     try {
         const allUsers= await pool.query(
-            "SELECT * FROM users where h"
+            "SELECT * FROM users"
         );
         res.json(allUsers.rows);
     } catch (error) {
