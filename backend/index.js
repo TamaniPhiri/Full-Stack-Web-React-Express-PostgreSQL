@@ -16,7 +16,7 @@ app.get('/users', async(req, res)=>{
         );
         res.json(allUsers.rows);
     } catch (error) {
-        console.log(error);
+        res.json(error);
     }
 });
 
@@ -30,7 +30,7 @@ app.get('/users/:id', async(req, res)=>{
         );
         res.json(user.rows[0]);
     } catch (error) {
-        console.log(error);
+        res.json(error);
     }
 });
 
@@ -45,7 +45,7 @@ app.put('/users/:id', async(req, res)=>{
         );
         res.json("User updated successfully! 😎");
     } catch (error) {
-        
+        res.json(error);
     }
 });
 
@@ -59,7 +59,7 @@ app.post("/user",async(req, res)=>{
         );
         res.json(newUser.rows[0]);
     } catch (error) {
-        console.log(error);
+        res.json(error);
     }
 });
 
@@ -73,7 +73,7 @@ app.delete("/users/:id", async(req, res)=>{
         );
         res.json("User was successfully deleted");
     } catch (error) {
-        
+        res.json(error);
     }
 });
 
