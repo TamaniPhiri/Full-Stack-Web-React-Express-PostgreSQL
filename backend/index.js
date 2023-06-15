@@ -34,6 +34,21 @@ app.get('/users/:id', async(req, res)=>{
     }
 });
 
+//update a specific user by id
+app.put('/users/:id', async(req, res)=>{
+    const {id} =req.params;
+    const {name,email}=req.body;
+    try {
+        const user= await pool.query(
+            "UPDATE users SET name = $1, email = $2 WHERE id = $3",
+            [name,email,id] 
+        );
+        res.json("User updated successfully! 😎");
+    } catch (error) {
+        
+    }
+});
+
 //post a username and email to the database
 app.post("/user",async(req, res)=>{
     try {
